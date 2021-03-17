@@ -1,0 +1,49 @@
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form action="/add" method="POST">
+    <input type="text" name="name" placeholder="Nombre">
+    <input type="text" name="type" placeholder="Tipo">
+    <input type="text" name="ability" placeholder="Habilidad">
+    <input type="text" name="h_ability" placeholder="Habilidad Oculta">
+    <input type="text" name="habitat" placeholder="Habitat">
+    <input type="text" name="img" placeholder="Img">
+    <button type="submit">
+        Save
+    </button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Tipo</td>
+            <td>Habilidad</td>
+            <td>Habilidad Oculta</td>
+            <td>Habitat</td>
+            <td>Imagen</td>
+            <td>Operaciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pokemon in pokemons %}
+        <tr>
+            <td>{{ pokemon.1 }}</td>
+            <td>{{ pokemon.2 }}</td>
+            <td>{{ pokemon.3 }}</td>
+            <td>{{ pokemon.4 }}</td>
+            <td>{{ pokemon.5 }}</td>
+            <td>{{ pokemon.6 }}</td>
+            <td>
+                <a href="/edit/{{pokemon.0}}">Editar</a>
+                <a href="/delete/{{pokemon.0}}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
