@@ -1,10 +1,10 @@
-import React,{useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
+import {useParams,useHistory} from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import {openModalCharge,closeModalCharge} from '../utils/charge'
+import { closeModalCharge, openModalCharge } from '../utils/charge'
 
-const AddForm = () => {
+const UpdateForm = () => {
   const [pokemon, setPokemon] = useState({
     name: '',
     ability: '',
@@ -15,19 +15,47 @@ const AddForm = () => {
   })
 
   const history = useHistory()
+  const {id} = useParams()
+
+  // const getPokemon = async () => {
+  //   try {
+  //     openModalCharge()
+  //     const {data} = await axios.get(`http://127.0.0.1:8080/api/pokemon/${id}`)
+  //     setPokemon({
+  //       name: data.name,
+  //       ability: data.ability,
+  //       h_ability: data.h_ability,
+  //       habitat: data.habitat,
+  //       img: 'https://images.wikidexcdn.net/mwuploads/wikidex/thumb/9/95/latest/20160817212623/Charizard.png/200px-Charizard.png',
+  //       type: data.type
+  //     })
+  //     closeModalCharge()
+  //   } catch (error) {
+  //     closeModalCharge()
+  //     Swal.fire({
+  //       title: 'Error',
+  //       icon: 'error',
+  //       html: `<span style="color: black">${error.message}</span>`
+  //     })
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getPokemon()
+  // },[])
 
   const manageSubmit = async e => {
     try {
       e.preventDefault()
       openModalCharge()
-      const {data} = await axios.post('http://127.0.0.1:8080/api/pokemon', pokemon)
+      const {data} = axios.put(`http://127.0.0.1:8080/api/pokemon/${id}`,pokemon)
       closeModalCharge()
       await Swal.fire({
         title: 'Listo',
         icon: 'success',
-        html: `<span style="color: black">${data.name} agregado</span>`
+        html: `<span style="color: black">${data.name} actualizado</span>`
       })
-      history.push('/')
+      history.pushState('/')
     } catch (error) {
       Swal.fire({
         title: 'Error',
@@ -47,7 +75,7 @@ const AddForm = () => {
   return (
     <div className="l-container">
       <div className="Form">
-        <h1 className="Form__Title">Añadir Pokemon</h1>
+        <h1 className="Form__Title">Actualizar Pokemon</h1>
         <form onSubmit={manageSubmit}>
           <div className="Form__Img">
             <img src="https://firebasestorage.googleapis.com/v0/b/pokecrud-94f44.appspot.com/o/assets%2Fpikachu.png?alt=media&token=e7418a9f-5461-4295-b444-8a240b61a2e7" alt="Pikachu"/>
@@ -68,4 +96,4 @@ const AddForm = () => {
   )
 }
 
-export default AddForm
+export default UpdateForm
