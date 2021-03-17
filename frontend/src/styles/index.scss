@@ -101,15 +101,27 @@ input:focus,textarea:focus,select:focus,button:focus{
   }
 }
 
-.l-gridAutoFit{
+.l-CardBox{
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(226px,1fr));
-  grid-gap: 15px;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  padding: 20px 0;
 }
 
-@include mq($Desktop){
-  .l-gridAutoFit{
-    grid-gap: 20px;
+@include mq(600px){
+  .l-CardBox{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@include mq(900px){
+  .l-CardBox{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@include mq(1150px){
+  .l-CardBox{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -137,6 +149,21 @@ input:focus,textarea:focus,select:focus,button:focus{
   background: #464646;
 }
 
+.ModalCharge{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: rgba(0,0,0,.8);
+  @include flexCenter;
+  i{
+    color: $Light;
+  }
+}
+
 /* Components */
 @import './components/Nav';
 @import './components/Form';
+@import './components/Card';

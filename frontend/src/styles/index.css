@@ -86,17 +86,33 @@ input:focus, textarea:focus, select:focus, button:focus {
   }
 }
 
-.l-gridAutoFit {
+.l-CardBox {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(226px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
-  grid-gap: 15px;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 20px;
+  padding: 20px 0;
 }
 
-@media screen and (min-width: 1000px) {
-  .l-gridAutoFit {
-    grid-gap: 20px;
+@media screen and (min-width: 600px) {
+  .l-CardBox {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .l-CardBox {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .l-CardBox {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -122,6 +138,29 @@ input:focus, textarea:focus, select:focus, button:focus {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #464646;
+}
+
+.ModalCharge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ModalCharge i {
+  color: #FFFFFF;
 }
 
 /* Components */
@@ -386,5 +425,146 @@ input:focus, textarea:focus, select:focus, button:focus {
     font-size: 36px;
     text-align: left;
   }
+}
+
+.Card {
+  width: 100%;
+  background-color: #FFD700;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.Card__Edit, .Card__Delete {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  cursor: pointer;
+}
+
+.Card__Edit:hover, .Card__Delete:hover {
+  -webkit-transform: scale(1.1) rotate(5deg);
+          transform: scale(1.1) rotate(5deg);
+}
+
+.Card__Edit i, .Card__Delete i {
+  color: #FFFFFF;
+}
+
+.Card__Edit {
+  right: 10px;
+  background-color: #2196F3;
+}
+
+.Card__Delete {
+  left: 10px;
+  background-color: #E61E62;
+}
+
+.Card__Name {
+  display: block;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.Card__Img {
+  width: 100%;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 4px;
+}
+
+.Card__Img img {
+  width: 100%;
+}
+
+.Card__Subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.Card__Info {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.Card__Info-Item {
+  padding: 10px;
+  border-bottom: 0.5px solid #BABABA;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+}
+
+.Card__Info-Item:last-child {
+  border-bottom: none;
+}
+
+.Card__Info-Key {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2196F3;
+}
+
+.Card__Info-Value p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #303030;
 }
 /*# sourceMappingURL=index.css.map */
