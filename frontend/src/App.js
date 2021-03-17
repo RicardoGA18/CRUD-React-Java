@@ -10,7 +10,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomeView} />
           <Route exact path='/add' component={AddView} />
-          <Route exact path='/edit' component={UpdateView} />
+          <Route exact path='/edit/:id' component={UpdateView} />
         </Switch>
       </BrowserRouter>
     </>
