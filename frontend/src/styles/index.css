@@ -1,0 +1,390 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+/* Settings */
+/* Tools */
+/* Generic */
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Elements */
+html {
+  min-height: 100%;
+  background-color: #424242;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+p, span, a, label {
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+img, input, svg, div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: none;
+}
+
+/* layout */
+.l-container {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0 15px;
+}
+
+.l-contain {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+@media screen and (min-width: 500px) {
+  .l-container {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .l-container {
+    padding: 0 40px;
+  }
+}
+
+.l-gridAutoFit {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(226px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
+  grid-gap: 15px;
+}
+
+@media screen and (min-width: 1000px) {
+  .l-gridAutoFit {
+    grid-gap: 20px;
+  }
+}
+
+/* Scroll */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px #616161;
+  box-shadow: inset 0 0 5px #616161;
+  border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #686868;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #464646;
+}
+
+/* Components */
+.Nav {
+  background-color: #303030;
+  height: 70px;
+}
+
+.Nav .l-contain {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Nav__Logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Nav__Logo img {
+  width: 40px;
+  margin-right: 8px;
+}
+
+.Nav__Logo p {
+  font-size: 24px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.Nav__Button {
+  width: 120px;
+  height: 40px;
+  background-color: #2196F3;
+  border-radius: 5px;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.Nav__Button i {
+  color: #FFFFFF;
+  margin-left: 4px;
+}
+
+.Nav__Button:hover {
+  background-color: #56c9ff;
+}
+
+.Form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.Form__Title {
+  font-weight: bold;
+  font-size: 28px;
+  color: #FFFFFF;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.Form form {
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.Form__Img {
+  width: 264px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #FFFFFF;
+  margin: 0 auto 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Form__Img img {
+  width: 100%;
+}
+
+.Form__Input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  padding: 0 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 17px;
+}
+
+.Form__Type {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 50px;
+      grid-template-columns: 1fr 50px;
+  -ms-grid-rows: 50px;
+      grid-template-rows: 50px;
+  margin-bottom: 17px;
+  grid-gap: 10px;
+}
+
+.Form__Type-Add, .Form__Type-Delete {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  cursor: pointer;
+}
+
+.Form__Type-Add i, .Form__Type-Delete i {
+  color: #FFFFFF;
+}
+
+.Form__Type-Delete:hover {
+  background-color: #E61E62;
+}
+
+.Form__Type-Add:hover {
+  background: #2196F3;
+}
+
+.Form input[type="submit"] {
+  width: 100%;
+  display: block;
+  max-width: 285px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #2196F3;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  cursor: pointer;
+}
+
+.Form input[type="submit"]:hover {
+  background-color: #56c9ff;
+}
+
+.Form__ButtonImg {
+  width: 160px;
+  height: 50px;
+  position: relative;
+  margin: 0 auto 20px;
+}
+
+.Form__ButtonImg input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.Form__ButtonImg input:hover ~ button {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.Form__ButtonImg button {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid #FFFFFF;
+  background: none;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.Form__ButtonImg button i {
+  margin-left: 5px;
+}
+
+@media screen and (min-width: 500px) {
+  .Form__Title {
+    font-size: 36px;
+    text-align: left;
+  }
+}
+/*# sourceMappingURL=index.css.map */

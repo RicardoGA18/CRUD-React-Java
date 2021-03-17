@@ -1,0 +1,133 @@
+.Form{
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  &__Title{
+    font-weight: bold;
+    font-size: 28px;
+    color: $Light;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  form{
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: $Bg-Light;
+  }
+  &__Img{
+    width: 264px;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid $Light;
+    margin: 0 auto 20px;
+    @include flexCenter;
+    img{
+      width: 100%;
+    }
+  }
+  &__Input{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 18px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 400;
+    font-size: 18px;
+    color: $Black;
+    margin-bottom: 17px;
+  }
+  &__Type{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-template-rows: 50px;
+    margin-bottom: 17px;
+    grid-gap: 10px;
+    &-Add,&-Delete{
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      border: 1px solid $Light;
+      @include flexCenter;
+      transition: .3s all;
+      cursor: pointer;
+      i{
+        color: $Light;
+      }
+    }
+    &-Delete:hover{
+      background-color: $Red;
+    }
+    &-Add:hover{
+      background: $Blue;
+    }
+  }
+  input[type="submit"]{
+    width: 100%;
+    display: block;
+    max-width: 285px;
+    margin: 0 auto;
+    @include flexCenter;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    color: $Light;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: $Blue;
+    transition: .3s all;
+    cursor: pointer;
+    &:hover{
+      background-color: rgb(86, 201, 255);
+    }
+  }
+  &__ButtonImg{
+    width: 160px;
+    height: 50px;
+    position: relative;
+    margin: 0 auto 20px;
+    input{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
+    input:hover ~ button{
+      background: $Light;
+      color: $Black;
+    }
+    button{
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      border: 1px solid $Light;
+      background: none;
+      color: $Light;
+      font-size: 18px;
+      font-weight: 400;
+      @include flexCenter;
+      transition: .3s all;
+      i{
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+@include mq($Tablet){
+  .Form{
+    &__Title{
+      font-size: 36px;
+      text-align: left;
+    }
+  }
+}
